@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Revisao.Data.Providers.Collections;
 using Revisao.Domain.Entities;
 using System;
 using System.Collections.Generic;

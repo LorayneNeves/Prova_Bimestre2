@@ -9,7 +9,7 @@ namespace Revisao.Application.Interfaces
 {
 	public interface IRegistroJogoService
 	{
-		public Task RegistrarJogo(RegistroJogoViewModel registroJogoViewModel);
+		public Task RegistrarJogo(NovoRegistroJogoViewModel registroJogoViewModel);
 
 		IEnumerable<RegistroJogoViewModel> ObterTodosOsJogos();
 	}

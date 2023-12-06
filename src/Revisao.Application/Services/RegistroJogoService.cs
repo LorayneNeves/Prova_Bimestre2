@@ -22,17 +22,19 @@ namespace Revisao.Application.Services
 			_mapper = mapper;
 		}
 
-		public async Task<IEnumerable<RegistroJogoViewModel>> ObterTodosOsJogos()
+		public async Task RegistrarJogo(NovoRegistroJogoViewModel registroJogoViewModel)
 		{
-			return _mapper.Map<IEnumerable<RegistroJogoViewModel>>(await _registroJogoRepository.ObterTodosOsJogos());
+            var novoJogo = _mapper.Map<RegistroJogo>(registroJogoViewModel);
+            RegistroJogo c = new RegistroJogo
+            (
+               registroJogoViewModel.primeiroNumero, registroJogoViewModel.segundoNumero, registroJogoViewModel.terceiroNumero, registroJogoViewModel.quartoNumero, registroJogoViewModel.quintoNumero, registroJogoViewModel.sextoNumero
+            );
+            await _registroJogoRepository.RegistrarJogo(novoJogo);
+        }
 
-		}
-
-		public async Task RegistrarJogo(RegistroJogoViewModel registroJogoViewModel)
+		IEnumerable<RegistroJogoViewModel> IRegistroJogoService.ObterTodosOsJogos()
 		{
-			//Criar reggra de negocio aqui para um jogo valido.
-
-			await _registroJogoRepository.RegistrarJogo(_mapper.Map<RegistroJogo>(registroJogoViewModel));
-		}
+            return _mapper.Map<IEnumerable<RegistroJogoViewModel>>(_registroJogoRepository.ObterTodosOsJogos());
+        }
 	}
 }

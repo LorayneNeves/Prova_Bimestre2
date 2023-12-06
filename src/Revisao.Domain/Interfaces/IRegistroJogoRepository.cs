@@ -11,7 +11,7 @@ namespace Revisao.Domain.Interfaces
 	{
 		public Task RegistrarJogo(RegistroJogo registroJogo);
 
-		public Task<IEnumerable<RegistroJogo>> ObterTodosOsJogos();
+		public IEnumerable<RegistroJogo> ObterTodosOsJogos();
 
 	}
 }

@@ -20,16 +20,18 @@ namespace Revisao.API.Controllers
 		}
 
 		[HttpGet(Name = "ObterTodosOsJogos")]
-		public async Task<IActionResult> ObterTodosOsJogos()
+		public IActionResult ObterTodosOsJogos()
 		{
-			return Ok(await _registroJogoService.ObterTodosOsJogos());
-		}
+            return Ok(_registroJogoService.ObterTodosOsJogos());
+        }
 
 
-		[HttpPost(Name = "RegistrarNovoJogo")]
-		public async Task<IActionResult> RegistrarNovoJogo(RegistroJogoViewModel registroJogoViewModel)
+		[HttpPost(Name = "RegistrarJogo")]
+		public IActionResult RegistrarJogo(NovoRegistroJogoViewModel registroJogoViewModel)
 		{
-			return Ok(_registroJogoService.RegistrarJogo(registroJogoViewModel));
-		}
+            _registroJogoService.RegistrarJogo(registroJogoViewModel);
+
+            return Ok();
+        }
 	}
 }

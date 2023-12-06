@@ -11,6 +11,6 @@ namespace Revisao.Application.Interfaces
 	{
 		public Task RegistrarJogo(RegistroJogoViewModel registroJogoViewModel);
 
-		public Task<IEnumerable<RegistroJogoViewModel>> ObterTodosOsJogos();
+		IEnumerable<RegistroJogoViewModel> ObterTodosOsJogos();
 	}
 }
